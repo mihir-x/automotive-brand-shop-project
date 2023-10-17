@@ -23,7 +23,10 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <div className="md:flex items-center gap-2">
+                        <img src="https://i.ibb.co/rcCbz9W/preview.png" alt="" className="h-10 w-20"/>
+                        <h3 className="text-lg md:text-xl font-bold text-blue-700">Brand Shop</h3>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -33,7 +36,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link><button className="btn">Login</button></Link>
+                    <Link to='/login'><button className="btn">Login</button></Link>
                 </div>
             </div>
         </div>
