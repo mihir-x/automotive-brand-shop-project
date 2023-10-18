@@ -1,13 +1,28 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext)
 
     const navLinks = <>
         <li className="text-base font-semibold"><NavLink to='/' className={({isActive, isPending}) => isPending ? 'pending' : isActive ? 'font-bold underline text-lime-500 bg-lime-200' : ''}>Home</NavLink></li>
         <li className="text-base font-semibold"><NavLink to='/addproduct' className={({isActive, isPending}) => isPending ? 'pending' : isActive ? 'font-bold underline text-lime-500 bg-lime-200' : ''}>Add Product</NavLink></li>
         <li className="text-base font-semibold"><NavLink to='/mycart' className={({isActive, isPending}) => isPending ? 'pending' : isActive ? 'font-bold underline text-lime-500 bg-lime-200' : ''}>My Cart</NavLink></li>
     </>
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+            swal('See ya!', 'User logged out successfully', 'success')
+        })
+        .catch(error => {
+            swal('Ooops!', error.message, 'error')
+        })
+    }
 
     return (
         <div>
@@ -36,7 +51,18 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login'><button className="btn">Login</button></Link>
+                    {
+                        user ? <div className="flex flex-col md:flex-row items-center gap-1">
+                            <div className="flex items-center gap-1 p-1 border rounded-l-full rounded-r-full">
+                                <img src={user.photoURL} alt="" className="w-10 h-10 rounded-full"/>
+                                <h3 className="text-sm md:text-xl font-bold">{user.displayName}</h3>
+                            </div>
+                            <div>
+                                <button onClick={handleLogOut} className="px-2 py-1 rounded-md text-sm font-bold bg-blue-500 text-white">Log Out</button>
+                            </div>
+                        </div>
+                        : <Link to='/login'><button className="btn">Login</button></Link>
+                    }
                 </div>
             </div>
         </div>
