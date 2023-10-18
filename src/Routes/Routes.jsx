@@ -18,7 +18,8 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/registration',
-                element: <Registration></Registration>
+                element: <Registration></Registration>,
+                loader: () => fetch('http://localhost:5000/users')
             },
             {
                 path: '/login',
