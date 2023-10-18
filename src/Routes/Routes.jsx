@@ -23,7 +23,8 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login></Login>
+                element: <Login></Login>,
+                loader: () => fetch('http://localhost:5000/users')
             }
         ]
     }
