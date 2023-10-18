@@ -4,6 +4,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Registration from "../Pages/Registration/Registration";
 import Login from "../Pages/Login/Login";
+import PrivateRoutes from "./PrivateRoutes";
+import AddProduct from "../Pages/AddProduct/AddProduct";
 
 
 const Routes = createBrowserRouter([
@@ -15,6 +17,7 @@ const Routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
+                loader: () => fetch('/brands.json')
             },
             {
                 path: '/registration',
@@ -25,6 +28,10 @@ const Routes = createBrowserRouter([
                 path: '/login',
                 element: <Login></Login>,
                 loader: () => fetch('http://localhost:5000/users')
+            },
+            {
+                path: '/addproduct',
+                element: <PrivateRoutes><AddProduct></AddProduct></PrivateRoutes>
             }
         ]
     }
