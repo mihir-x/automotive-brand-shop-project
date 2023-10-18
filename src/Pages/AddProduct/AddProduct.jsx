@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 
 
 const AddProduct = () => {
@@ -6,8 +7,31 @@ const AddProduct = () => {
         e.preventDefault()
         const form = e.target
         const name = form.name.value
-        const brandName = form.brand.value
-        console.log(name, brandName)
+        const brand = form.brand.value
+        const type = form.type.value 
+        const price = form.price.value 
+        const image = form.image.value 
+        const rating = form.rating.value 
+        const description = form.description.value 
+
+        const product = {name, brand, type, price, image, rating, description}
+
+        //add product data to the database
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                swal('Congratulations!', 'Product has been added to the database', 'success')
+                form.reset()
+            }
+        })
+
     }
 
     return (
