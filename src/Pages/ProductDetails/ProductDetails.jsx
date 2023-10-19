@@ -14,7 +14,7 @@ const ProductDetails = () => {
     const addedProduct = { email, name, image, description, price, rating, type, brand }
 
     const handleAddToCart = () => {
-        fetch('http://localhost:5000/added', {
+        fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/added', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

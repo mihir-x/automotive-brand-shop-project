@@ -46,7 +46,7 @@ const Login = () => {
                 const isExists = existingUsersInDatabase.find(userInDB => userInDB.email == email)
                 //send user data to database
                 if (!isExists) {
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/users', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

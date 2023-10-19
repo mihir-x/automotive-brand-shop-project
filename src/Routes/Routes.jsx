@@ -26,12 +26,12 @@ const Routes = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Registration></Registration>,
-                loader: () => fetch('http://localhost:5000/users')
+                loader: () => fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/users')
             },
             {
                 path: '/login',
                 element: <Login></Login>,
-                loader: () => fetch('http://localhost:5000/users')
+                loader: () => fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/users')
             },
             {
                 path: '/addproduct',
@@ -40,22 +40,22 @@ const Routes = createBrowserRouter([
             {
                 path: '/brands',
                 element: <BrandProducts></BrandProducts>,
-                loader: () => fetch('http://localhost:5000/products')
+                loader: () => fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/products')
             },
             {
                 path: '/brands/:id',
                 element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/products/${params.id}`)
             },
             {
                 path: '/:id',
                 element: <PrivateRoutes><UpdateProduct></UpdateProduct></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/${params.id}`)
             },
             {
                 path: '/mycart',
                 element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
-                loader: () => fetch('http://localhost:5000/added')
+                loader: () => fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/added')
             }
         ]
     }

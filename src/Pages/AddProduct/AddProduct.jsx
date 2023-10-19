@@ -17,7 +17,7 @@ const AddProduct = () => {
         const product = {name, brand, type, price, image, rating, description}
 
         //add product data to the database
-        fetch('http://localhost:5000/products', {
+        fetch('https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
