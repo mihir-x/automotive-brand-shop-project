@@ -58,8 +58,8 @@ const Login = () => {
                             console.log(data)
                         })
                     swal('Congratulations!', 'User created Successfully', 'success')
-                    navigate('/')
                 }
+                navigate('/')
 
             })
             .catch(error => {
