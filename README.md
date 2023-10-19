@@ -1,7 +1,8 @@
 # Automotive Brand Shop 
-# Live Link: https://brand-shop-d9fc7.web.app/ 
 
-Some features of our automotive brand shop website:
+Live Link: https://brand-shop-d9fc7.web.app/ 
+
+# Some features of our automotive brand shop website:
 
 - Clicking on any brand will take to a page where you can see all the available products related to that brand.
 - In the add product page logged user can add different products to the website database.
