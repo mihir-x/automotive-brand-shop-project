@@ -5,24 +5,27 @@ const UpdateProduct = () => {
 
     const updateProduct = useLoaderData()
     const { name, image, brand, type, price, rating } = updateProduct
+    console.log(name, image, brand, type, price, rating)
 
     const handleUpdate = (e) => {
         e.preventDefault()
         const form = e.target
-        const name = form.name.value
-        const brand = form.brand.value
-        const type = form.type.value
-        const price = form.price.value
-        const image = form.image.value
-        const rating = form.rating.value
-        const updatedUser = {name, brand, type, price, image, rating}
+        console.log(form)
+        const name = form?.name?.value
+        const brand = form?.brand?.value 
+        const type = form?.type?.value
+        const price = form?.price?.value
+        const image = form?.image?.value
+        const rating = form?.rating?.value
+        const newProduct = {name, brand, price, type, image, rating}
+        console.log(newProduct)
         //update to database
         fetch(`http://localhost:5000/${updateProduct._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(updatedUser)
+            body: JSON.stringify(newProduct)
         })
         .then(res => res.json())
         .then(data => {
@@ -36,7 +39,7 @@ const UpdateProduct = () => {
                 <div className="text-center">
                     <h1 className="text-xl md:text-3xl lg:text-5xl font-semibold">Update Product</h1>
                 </div>
-                <form onClick={handleUpdate} className="mt-5 md:mt-8 lg:mt-12">
+                <form onSubmit={handleUpdate} className="mt-5 md:mt-8 lg:mt-12">
                     <div className="md:flex gap-5 mt-5">
                         <div className="form-control md:w-1/2">
                             <label className="input-group w-full">
@@ -49,12 +52,12 @@ const UpdateProduct = () => {
                                 <span className="w-[30%]">Brand</span>
                                 <select name="brand" className="select select-bordered w-[70%]" defaultValue={brand}>
                                     <option disabled selected>Select Brand</option>
-                                    <option>Toyota</option>
-                                    <option>Ford</option>
-                                    <option>BMW</option>
-                                    <option>Mercedes-Benz</option>
-                                    <option>Tesla</option>
-                                    <option>Honda</option>
+                                    <option value='Toyota'>Toyota</option>
+                                    <option value='Ford'>Ford</option>
+                                    <option value='BMW'>BMW</option>
+                                    <option value='Mercedes-Benz'>Mercedes-Benz</option>
+                                    <option value='Tesla'>Tesla</option>
+                                    <option value='Honda'>Honda</option>
                                 </select>
                             </label>
                         </div>
