@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import CartCard from "../../Components/CartCard/CartCard";
@@ -7,7 +7,8 @@ import CartCard from "../../Components/CartCard/CartCard";
 const MyCart = () => {
     const {user} = useContext(AuthContext)
     const storedCart = useLoaderData()
-    const myCart = storedCart.filter(cart => cart.email === user.email)
+    const [currentCart, setCurrentCart] = useState(storedCart)
+    const myCart = currentCart.filter(cart => cart.email === user.email)
     console.log(myCart)
 
     return (
@@ -20,7 +21,7 @@ const MyCart = () => {
                         </div>
                         <div className=" space-y-5">
                             {
-                                myCart.map(cart => <CartCard key={cart._id} cart={cart}></CartCard>)
+                                myCart.map(cart => <CartCard key={cart._id} cart={cart} currentCart={currentCart} setCurrentCart={setCurrentCart}></CartCard>)
                             }
                         </div>
                     </div>

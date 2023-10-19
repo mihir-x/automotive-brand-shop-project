@@ -1,11 +1,22 @@
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 
-const CartCard = ({cart}) => {
+const CartCard = ({cart, currentCart, setCurrentCart}) => {
 
     const { _id, name, brand, image, type, price, rating } = cart
 
-    const handleDelete = (id) =>{
-
+    const handleDelete = () =>{
+        fetch(`http://localhost:5000/added/${_id}`,{
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                swal('Thank You!', 'Product deleted successfully', 'success')
+                const remainingCart = currentCart.filter(c => c._id !== _id)
+                setCurrentCart(remainingCart)
+            }
+        })
     }
 
     return (
@@ -29,7 +40,7 @@ const CartCard = ({cart}) => {
                 <h4>Price: ${price}</h4>
             </div>
             <div className='flex flex-col gap-2'>
-                <button onClick={()=> handleDelete(_id)} className='p-2 bg-orange-400 rounded-md text-white font-bold w-[70%] text-center'>Delete</button>
+                <button onClick={handleDelete} className='p-2 bg-orange-400 rounded-md text-white font-bold w-[70%] text-center'>Delete</button>
             </div>
         </div>
     );
@@ -38,5 +49,7 @@ const CartCard = ({cart}) => {
 export default CartCard;
 
 CartCard.propTypes = {
-    cart: PropTypes.object
+    cart: PropTypes.object,
+    currentCart: PropTypes.array,
+    setCurrentCart: PropTypes.func
 }
