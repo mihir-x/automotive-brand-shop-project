@@ -14,7 +14,7 @@ const Navbar = () => {
         <li className="text-base font-semibold"><NavLink to='/mycart' className={({isActive, isPending}) => isPending ? 'pending' : isActive ? 'font-bold underline text-lime-500 bg-lime-200' : ''}>My Cart</NavLink></li>
     </>
 
-    const handleLogOut = () => {
+    const handleLogOut = () => {    
         logOut()
         .then(() => {
             swal('See ya!', 'User logged out successfully', 'success')
