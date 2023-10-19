@@ -25,8 +25,8 @@ const Product = ({product}) => {
                 <h4>Price: ${price}</h4>
             </div>
             <div className='flex flex-col gap-2'>
-                <Link to={`/brands/${_id}`} className='p-2 bg-lime-500 rounded-md text-white font-bold w-[70%] text-center'>Details</Link>
-                <Link to={`/${_id}`} className='p-2 bg-lime-500 rounded-md text-white font-bold w-[70%] text-center'>Update</Link>
+                <Link to={`/brands/${_id}`} className='p-2 bg-lime-500 rounded-md text-white font-bold md:w-[70%] text-center'>Details</Link>
+                <Link to={`/${_id}`} className='p-2 bg-lime-500 rounded-md text-white font-bold md:w-[70%] text-center'>Update</Link>
             </div>
         </div>
     );

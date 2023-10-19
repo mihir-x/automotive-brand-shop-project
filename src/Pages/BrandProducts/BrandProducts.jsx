@@ -1,5 +1,6 @@
 import { useLoaderData, useLocation } from "react-router-dom";
 import Product from "../../Components/Product/Product";
+import { useState } from "react";
 
 
 const BrandProducts = () => {
@@ -8,12 +9,27 @@ const BrandProducts = () => {
     const location = useLocation()
     const brand = location.state.brand.brand_name
     const existingProduct = allBrands.filter(brnd => brnd.brand === brand)
+    const [current, setCurrent] = useState(0)
     
+    const photos = [
+        'https://i.ibb.co/8N3XTTB/nsdvc9738i761.jpg',
+        'https://i.ibb.co/tYGSrC4/koenigsegg-gemera.jpg',
+        'https://i.ibb.co/nM5BVsm/teakak.jpg'
+    ]
+    const length = photos.length
+    const handlePrev = () => {
+        setCurrent(current === 0 ? length-1 : current-1)
+    }
+    const handleNext = () => {
+        setCurrent(current === length-1 ? 0 : current+1)
+    }
 
     return (
-        <div>
-            <div>
-                carousel goes here
+        <div className="mb-5 md:mb-8 lg:mb-16">
+            <div className="h-[20rem] relative">
+                <button onClick={handlePrev} className="btn absolute left-5 top-[50%]">prev</button>
+                <img src={photos[current]} alt="" className="h-full w-full"/>
+                <button onClick={handleNext} className="btn absolute right-5 top-[50%]">next</button>
             </div>
             <div>
                 {
