@@ -3,7 +3,7 @@ import BrandCard from './BrandCard';
 
 const AllBrands = ({allBrands}) => {
 
-    console.log(allBrands)
+    
 
     return (
         <div>
