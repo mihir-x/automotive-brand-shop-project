@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Product = ({product}) => {
-    const {_id, name, brand, image, type, price, rating} = product
+const Product = ({ product }) => {
+    const { _id, name, brand, image, type, price, rating } = product
     console.log(_id, name, brand, image, type, price, rating)
     return (
         <div className='flex flex-col items-center md:grid md:grid-cols-7 border p-2 rounded-md mt-5 md:mt-8 lg:mt-10'>
@@ -18,8 +18,10 @@ const Product = ({product}) => {
             <div className='text-center font-bold'>
                 <h4>Type: {type}</h4>
             </div>
-            <div className='text-center font-bold'>
-                <h4>Rating: {rating}</h4>
+            <div className="rating">
+                {
+                    Array(5).fill().map((_, index) => (<input key={index} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />))
+                }
             </div>
             <div className='text-center font-bold'>
                 <h4>Price: ${price}</h4>

@@ -5,7 +5,7 @@ const DrivingPassion = () => {
         <div className="mt-5 md:mt-10 lg:mt-16 bg-white text-black shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div>
-                    <img src="https://i.ibb.co/CnyMBtR/prod9e6047.jpg" alt="" className="w-full h-full" />
+                    <img src="https://i.ibb.co/dcQVjb8/ash-crest-car-collection.jpg" alt="" className="w-full h-full" />
                 </div>
                 <div className="text-center space-y-5">
                     <h1 className='text-lg md:text-3xl lg:text-4xl font-bold mt-5'>Driving Passion</h1>

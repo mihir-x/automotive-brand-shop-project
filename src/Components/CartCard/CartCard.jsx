@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 
-const CartCard = ({cart, currentCart, setCurrentCart}) => {
+const CartCard = ({ cart, currentCart, setCurrentCart }) => {
 
     const { _id, name, brand, image, type, price, rating } = cart
 
-    const handleDelete = () =>{
-        fetch(`https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/added/${_id}`,{
+    const handleDelete = () => {
+        fetch(`https://brand-shop-server-7p0wxtrvr-mihirs-projects-5e226e4c.vercel.app/added/${_id}`, {
             method: 'DELETE',
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.deletedCount > 0){
-                swal('Thank You!', 'Product deleted successfully', 'success')
-                const remainingCart = currentCart.filter(c => c._id !== _id)
-                setCurrentCart(remainingCart)
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    swal('Thank You!', 'Product deleted successfully', 'success')
+                    const remainingCart = currentCart.filter(c => c._id !== _id)
+                    setCurrentCart(remainingCart)
+                }
+            })
     }
 
     return (
@@ -33,8 +33,10 @@ const CartCard = ({cart, currentCart, setCurrentCart}) => {
             <div className='text-center font-bold'>
                 <h4>Type: {type}</h4>
             </div>
-            <div className='text-center font-bold'>
-                <h4>Rating: {rating}</h4>
+            <div className="rating">
+                {
+                    Array(5).fill().map((_, index) => (<input key={index} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" {...index + 1 === rating ? 'checked' : ''} />))
+                }
             </div>
             <div className='text-center font-bold'>
                 <h4>Price: ${price}</h4>
