@@ -42,11 +42,11 @@ const ProductDetails = () => {
                     <p className="text-sm md:text-lg">{description}</p>
                 </div>
                 <div className="flex flex-col md:flex-row md:justify-between">
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 items-center">
                         <h4 className="font-bold text-sm md:text-xl">${price}</h4>
-                        <div className="rating">
+                        <div className="text-sm md:text-2xl">
                             {
-                                Array(5).fill().map((_, index) => (<input key={index} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />))
+                                Array(5).fill().map((_, index) => (<span key={index} className={`${index + 1 <= rating ? 'text-orange-500' : ''}`}>&#9733;</span>))
                             }
                         </div>
                     </div>

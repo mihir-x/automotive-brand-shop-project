@@ -18,9 +18,9 @@ const Product = ({ product }) => {
             <div className='text-center font-bold'>
                 <h4>Type: {type}</h4>
             </div>
-            <div className="rating">
+            <div className="text-sm md:text-2xl">
                 {
-                    Array(5).fill().map((_, index) => (<input key={index} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />))
+                    Array(5).fill().map((_, index) => (<span key={index} className={`${index+1 <=rating? 'text-orange-500': ''}`}>&#9733;</span>))
                 }
             </div>
             <div className='text-center font-bold'>

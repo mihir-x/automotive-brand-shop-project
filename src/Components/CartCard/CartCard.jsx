@@ -33,16 +33,16 @@ const CartCard = ({ cart, currentCart, setCurrentCart }) => {
             <div className='text-center font-bold'>
                 <h4>Type: {type}</h4>
             </div>
-            <div className="rating">
+            <div className="text-sm md:text-2xl">
                 {
-                    Array(5).fill().map((_, index) => (<input key={index} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" {...index + 1 === rating ? 'checked' : ''} />))
+                    Array(5).fill().map((_, index) => (<span key={index} className={`${index+1 <=rating? 'text-orange-500': ''}`}>&#9733;</span>))
                 }
             </div>
             <div className='text-center font-bold'>
                 <h4>Price: ${price}</h4>
             </div>
             <div className='flex flex-col gap-2'>
-                <button onClick={handleDelete} className='p-2 bg-orange-400 rounded-md text-white font-bold w-[70%] text-center'>Delete</button>
+                <button onClick={handleDelete} className='p-2 bg-orange-400 rounded-md text-white font-bold md:w-[70%] text-center'>Delete</button>
             </div>
         </div>
     );
