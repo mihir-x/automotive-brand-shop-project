@@ -13,7 +13,7 @@ const MyCart = () => {
 
     return (
         <div>
-            <dir>
+            <div>
                 {
                     (myCart.length > 0) ? <div className="mt-5 md:mt-8 lg:mt-14 max-w-screen-lg mx-auto">
                         <div className="text-center">
@@ -29,7 +29,7 @@ const MyCart = () => {
                         <h1 className='text-lg md:text-3xl lg:text-4xl font-bold'>Currently You Have Nothing In Your Cart</h1>
                     </div>
                 }
-            </dir>
+            </div>
         </div>
     );
 };
