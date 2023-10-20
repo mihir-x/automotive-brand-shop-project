@@ -27,9 +27,9 @@ const BrandProducts = () => {
     return (
         <div className="mb-5 md:mb-8 lg:mb-16">
             <div className="h-[20rem] relative">
-                <button onClick={handlePrev} className="btn absolute left-5 top-[50%]">prev</button>
+                <button onClick={handlePrev} className="btn btn-primary rounded-full absolute left-5 top-[50%]">❮</button>
                 <img src={photos[current]} alt="" className="h-full w-full"/>
-                <button onClick={handleNext} className="btn absolute right-5 top-[50%]">next</button>
+                <button onClick={handleNext} className="btn btn-primary rounded-full absolute right-5 top-[50%]">❯</button>
             </div>
             <div>
                 {
