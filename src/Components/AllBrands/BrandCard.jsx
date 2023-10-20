@@ -12,7 +12,7 @@ const BrandCard = ({ brands }) => {
 
     return (
         <Link to='/brands' state={{brand: {brand_name}}}>
-            <div className="card h-[25rem] w-full shadow-xl outline cursor-pointer">
+            <div className="card h-[25rem] w-full shadow-2xl cursor-pointer bg-gray-600 text-white">
                 <figure className='h-[80%]'><img src={brand_image} alt="Shoes" className='h-full w-full' /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{brand_name}</h2>
