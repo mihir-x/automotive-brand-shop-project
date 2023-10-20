@@ -4,6 +4,7 @@ import Footer from "../../Components/Footer/Footer";
 import AllBrands from "../../Components/AllBrands/AllBrands";
 import DrivingPassion from "../../Components/DrivingPassion/DrivingPassion";
 import { useEffect, useState } from "react";
+import SiteInformation from "../../Components/SiteInformation/SiteInformation";
 
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
                 <button onClick={toggleTheme} className="absolute right-2 top-2 px-2 py-1 rounded-md bg-blue-700">{isLightMode?<p>Dark Theme</p>: <p className="text-white">Light Theme</p>}</button>
                 <Banner></Banner>
             </div>
+            <SiteInformation allBrands={allBrands}></SiteInformation>
             <AllBrands allBrands={allBrands}></AllBrands>
             <DrivingPassion></DrivingPassion>
             <Footer></Footer>

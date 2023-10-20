@@ -2,7 +2,7 @@
 
 const DrivingPassion = () => {
     return (
-        <div className="mt-5 md:mt-10 lg:mt-16 bg-white text-black">
+        <div className="mt-5 md:mt-10 lg:mt-16 bg-white text-black shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div>
                     <img src="https://i.ibb.co/CnyMBtR/prod9e6047.jpg" alt="" className="w-full h-full" />
