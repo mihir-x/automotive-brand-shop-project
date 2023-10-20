@@ -104,7 +104,7 @@ const AddProduct = () => {
                     <div className="mt-5">
                         <div className="form-control w-full">
                             <label className="input-group w-full">
-                                <span className="w-[15%]">Short Description</span>
+                                <span className="md:w-[15%]">Short Description</span>
                                 <input type="text" name="description" placeholder="write short description" className="w-[85%] input input-bordered" required/>
                             </label>
                         </div>
